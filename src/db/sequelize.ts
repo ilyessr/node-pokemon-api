@@ -3,6 +3,12 @@ import Pokemon from "../models/pokemon";
 import pokemons from "./mock-pokemon";
 import User from "../models/user";
 import bcrypt from "bcrypt";
+import dotenv from 'dotenv';
+
+
+dotenv.config({
+  path: `.env.${process.env.NODE_ENV}`
+});
 
 const dbName = process.env.DB_NAME;
 const dbUsername = process.env.DB_USERNAME;
@@ -23,7 +29,7 @@ const sequelize = new Sequelize(dbName, dbUsername, dbPassword, {
   dialectOptions: {
     timezone: "Etc/GMT-2",
   },
-  logging: Boolean(process.env.LOGGING),
+  logging: process.env.NODE_ENV === "production" ? true : false,
 });
 
 sequelize.addModels([Pokemon, User]);
