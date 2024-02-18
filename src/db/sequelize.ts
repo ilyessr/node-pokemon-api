@@ -23,7 +23,7 @@ const sequelize = new Sequelize(dbName, dbUsername, dbPassword, {
   dialectOptions: {
     timezone: "Etc/GMT-2",
   },
-  logging: false,
+  logging: Boolean(process.env.LOGGING),
 });
 
 sequelize.addModels([Pokemon, User]);

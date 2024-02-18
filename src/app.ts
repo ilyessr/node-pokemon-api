@@ -4,7 +4,7 @@ dotenv.config();
 import express, { Request, Response } from "express";
 import favicon from "serve-favicon";
 import { initDb } from "./db/sequelize";
-
+import { Pool } from 'pg';
 import createPokemon from "./routes/createPokemon";
 import deletePokemon from "./routes/deletePokemon";
 import updatePokemon from "./routes/updatePokemon";
@@ -18,7 +18,9 @@ const port = process.env.PORT || 3000;
 
 app.use(favicon("public/favicon.ico")).use(express.json());
 
-app.get( "/", (req, res) => { res.json("Hello, Heroku 🫡")})
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+});
 
 findAllPokemons(app);
 findPokemonByPk(app);
