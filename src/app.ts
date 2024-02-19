@@ -1,6 +1,3 @@
-import dotenv from "dotenv";
-dotenv.config();
-
 import express, { Request, Response } from "express";
 import favicon from "serve-favicon";
 import { initDb } from "./db/sequelize";
@@ -11,12 +8,14 @@ import updatePokemon from "./routes/updatePokemon";
 import findAllPokemons from "./routes/findAllPokemons";
 import findPokemonByPk from "./routes/findPokemonByPk";
 import login from "./routes/login";
+import cors from "cors"
 
 const app = express();
 
 const port = process.env.PORT || 3000;
 
-app.use(favicon("public/favicon.ico")).use(express.json());
+app.use(favicon("public/favicon.ico")).use(express.json())
+  .use(cors());
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
