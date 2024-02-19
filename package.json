@@ -4,6 +4,7 @@
   "description": "An awesome API Rest to handle some pokemons.",
   "main": "dist/app.js",
   "scripts": {
+    "watch": "tsc -w",
     "start": "NODE_ENV=production node dist/app.js",
     "build": "tsc",
     "dev": "NODE_ENV=development nodemon src/app.ts"
