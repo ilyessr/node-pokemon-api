@@ -2,7 +2,7 @@ import { Sequelize } from "sequelize-typescript";
 import Pokemon from "../models/pokemon";
 import pokemons from "./mock-pokemon";
 import User from "../models/user";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import dotenv from 'dotenv';
 
 

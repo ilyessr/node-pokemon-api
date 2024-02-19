@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { User } from "../db/sequelize";
 import CUSTOM_PRIVATE_KEY from "../auth/private_key";
