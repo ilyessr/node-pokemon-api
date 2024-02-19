@@ -1,6 +1,6 @@
 # API REST Pokémon avec Express.js, Sequelize et TypeScript, déployée sur Railway 
 
-Une API REST qui gère des pokemons. Basé sur le tutoriel [Node JS Tutorial Français pour Débutant - Cours complet 8h [2022]](https://www.youtube.com/watch?v=NRxzvpdduvQ). J'ai pris la liberté d'utiliser Typescript et de remplacer Heroku par Railway.
+Une API REST qui gère des pokemons. Inspiré du tutoriel [Node JS Tutorial Français pour Débutant - Cours complet 8h [2022]](https://www.youtube.com/watch?v=NRxzvpdduvQ). 
 
 ## Contenu
 
