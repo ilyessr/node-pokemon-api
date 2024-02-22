@@ -3,10 +3,9 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { User } from "../db/sequelize";
 import CUSTOM_PRIVATE_KEY from "../auth/private_key";
-import auth from "../auth/auth";
 
 export default (app: express.Application) => {
-  app.post("/api/login", auth, (req: Request, res: Response) => {
+  app.post("/api/login", (req: Request, res: Response) => {
     User.findOne({ where: { username: req.body.username } })
       .then((user) => {
         if (!user) {
