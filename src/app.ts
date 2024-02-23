@@ -9,6 +9,7 @@ import findAllPokemons from "./routes/findAllPokemons";
 import findPokemonByPk from "./routes/findPokemonByPk";
 import login from "./routes/login";
 import cors from "cors"
+import createUser from "./routes/createUser";
 
 const app = express();
 
@@ -24,6 +25,7 @@ const pool = new Pool({
 findAllPokemons(app);
 findPokemonByPk(app);
 createPokemon(app);
+createUser(app);
 updatePokemon(app);
 deletePokemon(app);
 login(app)
