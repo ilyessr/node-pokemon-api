@@ -9,14 +9,23 @@ import {
 
 const validTypes = [
   "Plante",
-  "Poison",
-  "Feu",
   "Eau",
-  "Insecte",
-  "Vol",
   "Normal",
+  "Poison",
+  "Vol",
+  "Psy",
+  "Feu",
+  "Insecte",
   "Electrik",
   "Fée",
+  "Combat",
+  "Acier",
+  "Spectre",
+  "Ténèbre",
+  "Dragon",
+  "Sol",
+  "Roche",
+  "Glace"
 ];
 
 @Table({
