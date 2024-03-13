@@ -10,6 +10,7 @@ import findPokemonByPk from "./routes/findPokemonByPk";
 import login from "./routes/login";
 import cors from "cors"
 import createUser from "./routes/createUser";
+import resetDB from "./routes/resetDB";
 
 const app = express();
 
@@ -18,16 +19,13 @@ const port = process.env.PORT || 3000;
 app.use(favicon("public/favicon.ico")).use(express.json())
   .use(cors());
 
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-});
-
 findAllPokemons(app);
 findPokemonByPk(app);
 createPokemon(app);
 createUser(app);
 updatePokemon(app);
 deletePokemon(app);
+resetDB(app)
 login(app)
 
 app.use(({ res }: { res: Response }) => {
