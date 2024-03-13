@@ -19,17 +19,16 @@ export default (app: express.Application) => {
         return res.status(401).json({ message: "Le mot de passe est incorrect." });
       }
 
-      const token = jwt.sign({ userId: user.id }, privateKey || "", {
+      const { password, ...userData } = user.toJSON();
+
+      const token = jwt.sign({ userId: user.id }, privateKey, {
         expiresIn: "24h",
       });
 
-      const { password, ...userData } = user.toJSON();
+      const message = `L'utilisateur a été connecté avec succès`;
 
-      return res.json({
-        message: "L'utilisateur a été connecté avec succès",
-        data: { ...userData, token },
+      return res.json({ message, data: userData, token });
 
-      });
 
 
 
