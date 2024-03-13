@@ -1,8 +1,8 @@
 import jwt, { JwtPayload } from 'jsonwebtoken';
-import privateKey from '../auth/private_key';
 import { Request, Response, NextFunction } from 'express';
 
 export default (req: Request, res: Response, next: NextFunction) => {
+  const privateKey = process.env.PRIVATE_KEY || "";
   const authorizationHeader = req.headers.authorization;
 
   if (!authorizationHeader) {

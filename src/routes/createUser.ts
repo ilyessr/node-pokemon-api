@@ -4,9 +4,10 @@ import express, { Request, Response } from "express";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { User } from "../db/sequelize";
-import CUSTOM_PRIVATE_KEY from "../auth/private_key";
 
 export default (app: express.Application) => {
+    const privateKey = process.env.PRIVATE_KEY || "";
+
     app.post("/api/users", async (req: Request, res: Response) => {
         try {
             const existingUser = await User.findOne({ where: { username: req.body.username } });
@@ -21,7 +22,7 @@ export default (app: express.Application) => {
                 password: hashedPassword,
             });
 
-            const token = jwt.sign({ userId: newUser.id }, CUSTOM_PRIVATE_KEY, {
+            const token = jwt.sign({ userId: newUser.id }, privateKey, {
                 expiresIn: "24h",
             });
 
