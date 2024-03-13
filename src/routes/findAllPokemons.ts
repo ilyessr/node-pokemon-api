@@ -29,7 +29,7 @@ export default (app: express.Application) => {
         res.json({ message, data: rows });
       });
     } else {
-      Pokemon.findAll()
+      Pokemon.findAll({ order: [['id', 'ASC']] })
         .then((pokemons) => {
           const message = "La liste des pokémons a bien été récupérée.";
           res.json({ message, data: pokemons });
