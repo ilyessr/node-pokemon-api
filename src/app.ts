@@ -1,7 +1,6 @@
-import express, { Request, Response } from "express";
+import express, { Response } from "express";
 import favicon from "serve-favicon";
 import { initDb } from "./db/sequelize";
-import { Pool } from 'pg';
 import createPokemon from "./routes/createPokemon";
 import deletePokemon from "./routes/deletePokemon";
 import updatePokemon from "./routes/updatePokemon";
